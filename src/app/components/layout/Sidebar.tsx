@@ -4,15 +4,33 @@ import Image from "next/image";
 import { Button } from "../ui/Button";
 import Link from "next/link";
 import { useSidebar } from "@/app/contexts/SidebarContext";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useClickOutside } from "@/app/hooks/useClickOutside";
 
 export default function Sidebar() {
   const { isSidebarOpen, toggleSidebar, setIsSidebarOpen } = useSidebar();
-
   const sideBarRef = useRef(null);
 
-  useClickOutside(sideBarRef, () => setIsSidebarOpen(false));
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check screen size on mount and on resize
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkIsMobile(); // Initial check
+    window.addEventListener("resize", checkIsMobile);
+
+    return () => {
+      window.removeEventListener("resize", checkIsMobile);
+    };
+  }, []);
+
+  // Only activate click outside when isMobile
+  useClickOutside(sideBarRef, () => {
+    if (isMobile) setIsSidebarOpen(false);
+  });
 
   return (
     <>
