@@ -1,26 +1,154 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: "Futura Cyrillic";
+  src: url("/assets/fonts/futura/FuturaCyrillic-Bold.eot");
+  src: url("/assets/fonts/futura/FuturaCyrillic-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("/assets/fonts/futura/FuturaCyrillic-Bold.woff2") format("woff2"),
+    url("/assets/fonts/futura/FuturaCyrillic-Bold.woff") format("woff"),
+    url("/assets/fonts/futura/FuturaCyrillic-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@font-face {
+  font-family: "Futura Cyrillic Book";
+  src: url("/assets/fonts/futura/FuturaCyrillicBook.eot");
+  src: url("/assets/fonts/futura/FuturaCyrillicBook.eot?#iefix")
+      format("embedded-opentype"),
+    url("/assets/fonts/futura/FuturaCyrillicBook.woff2") format("woff2"),
+    url("/assets/fonts/futura/FuturaCyrillicBook.woff") format("woff"),
+    url("/assets/fonts/futura/FuturaCyrillicBook.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@font-face {
+  font-family: "Futura Cyrillic";
+  src: url("/assets/fonts/futura/FuturaCyrillicHeavy.eot");
+  src: url("/assets/fonts/futura/FuturaCyrillicHeavy.eot?#iefix")
+      format("embedded-opentype"),
+    url("/assets/fonts/futura/FuturaCyrillicHeavy.woff2") format("woff2"),
+    url("/assets/fonts/futura/FuturaCyrillicHeavy.woff") format("woff"),
+    url("/assets/fonts/futura/FuturaCyrillicHeavy.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Futura Cyrillic";
+  src: url("/assets/fonts/futura/FuturaCyrillicMedium.eot");
+  src: url("/assets/fonts/futura/FuturaCyrillicMedium.eot?#iefix")
+      format("embedded-opentype"),
+    url("/assets/fonts/futura/FuturaCyrillicMedium.woff2") format("woff2"),
+    url("/assets/fonts/futura/FuturaCyrillicMedium.woff") format("woff"),
+    url("/assets/fonts/futura/FuturaCyrillicMedium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Futura Cyrillic";
+  src: url("/assets/fonts/futura/FuturaCyrillicLight.eot");
+  src: url("/assets/fonts/futura/FuturaCyrillicLight.eot?#iefix")
+      format("embedded-opentype"),
+    url("/assets/fonts/futura/FuturaCyrillicLight.woff2") format("woff2"),
+    url("/assets/fonts/futura/FuturaCyrillicLight.woff") format("woff"),
+    url("/assets/fonts/futura/FuturaCyrillicLight.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Futura Cyrillic Demi";
+  src: url("/assets/fonts/futura/FuturaCyrillic-Demi.eot");
+  src: url("/assets/fonts/futura/FuturaCyrillic-Demi.eot?#iefix")
+      format("embedded-opentype"),
+    url("/assets/fonts/futura/FuturaCyrillic-Demi.woff2") format("woff2"),
+    url("/assets/fonts/futura/FuturaCyrillic-Demi.woff") format("woff"),
+    url("/assets/fonts/futura/FuturaCyrillic-Demi.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Futura Cyrillic Extra";
+  src: url("/assets/fonts/futura/FuturaCyrillic-ExtraBold.eot");
+  src: url("/assets/fonts/futura/FuturaCyrillic-ExtraBold.eot?#iefix")
+      format("embedded-opentype"),
+    url("/assets/fonts/futura/FuturaCyrillic-ExtraBold.woff2") format("woff2"),
+    url("/assets/fonts/futura/FuturaCyrillic-ExtraBold.woff") format("woff"),
+    url("/assets/fonts/futura/FuturaCyrillic-ExtraBold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --breakpoint-xs: 360px;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 960px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1440px;
+  --breakpoint-3xl: 1720px;
+  --breakpoint-4xl: 1920px;
+
+  --font-futura: "Futura Cyrillic", sans-serif;
+
+  --color-brand-500: #d93c0b;
+  --color-neutral-100: #f2f3f7;
+  --color-neutral-200: #f0f1f5;
+  --color-neutral-300: #dcdee5;
+  --color-neutral-400: #c4c5cc;
+  --color-neutral-500: #7e818c;
+  --color-neutral-600: #2a2a2e;
+  --color-neutral-700: #131315;
+  --color-neutral-800: #070708;
+  --color-neutral-900: #050505;
+  --color-negative-500: #ff0000;
+  --color-warning-500: #ff9d00;
+  --color-positive-500: #00b259;
+  --color-info-500: #1a66ff;
+}
+
+@layer base {
+  body {
+    @apply font-futura text-white bg-neutral-800;
+  }
+
+  h1 {
+    @apply font-medium text-4xl/10 lg:text-[44px]/12;
+  }
+
+  h2 {
+    @apply font-medium text-[32px]/9 lg:text-[40px]/11;
+  }
+
+  h3 {
+    @apply font-medium text-2xl/8 lg:text-[32px]/40;
+  }
+
+  h4 {
+    @apply font-medium text-xl/7 lg:text-2xl/8;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@utility flex-between {
+  @apply flex items-center justify-between;
+}
+
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
+
+@utility smooth-200 {
+  @apply transition-all duration-200;
 }
