@@ -4,7 +4,7 @@ import { cn } from "../../lib/utils";
 import { type ButtonHTMLAttributes, forwardRef, type ReactNode } from "react";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center space-x-2 font-medium transition-colors cursor-pointer",
+  "inline-flex items-center justify-center space-x-2 lg:font-medium transition-colors cursor-pointer rounded-lg lg:rounded-xl",
   {
     variants: {
       variant: {
@@ -17,10 +17,7 @@ const buttonVariants = cva(
         ghost:
           "bg-neutral-800 hover:bg-neutral-500/10 disabled:text-neutral-500/60",
       },
-      shape: {
-        brick: "rounded-lg lg:rounded-xl",
-        round: "rounded-full",
-      },
+
       size: {
         xs: "h-8 leading-5 rounded-lg py-1.5 px-4",
         sm: "h-9 leading-5 rounded-lg py-2 px-4",
@@ -33,7 +30,6 @@ const buttonVariants = cva(
     },
     defaultVariants: {
       variant: "primary",
-      shape: "brick",
       size: "responsive",
     },
   }
@@ -47,11 +43,11 @@ export interface ButtonProps
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, children, variant, shape, size, onClick, ...props }, ref) => {
+  ({ className, children, variant, size, onClick, ...props }, ref) => {
     return (
       <button
         ref={ref}
-        className={cn(buttonVariants({ variant, shape, size }), className)}
+        className={cn(buttonVariants({ variant, size }), className)}
         onClick={onClick}
         {...props}
       >

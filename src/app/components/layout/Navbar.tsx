@@ -8,9 +8,9 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky md:fixed top-0 ${
-        isSidebarOpen ? " md:left-70" : "left-0 md:left-22 w-full md:w-auto"
-      } right-0 p-4 lg:p-5`}
+      className={`sticky top-0 ${
+        isSidebarOpen ? "" : "left-0 md:left-22 w-full md:w-auto"
+      } right-0 bg-neutral-800 p-4 lg:p-5`}
     >
       <nav className="flex-between">
         <Image

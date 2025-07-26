@@ -16,13 +16,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <SidebarProvider>
-          <Navbar />
+      <SidebarProvider>
+        <body className="flex">
           <Sidebar />
-          <main>{children}</main>
-        </SidebarProvider>
-      </body>
+          <main className="flex-1 flex flex-col">
+            <Navbar />
+            <>{children}</>
+          </main>
+        </body>
+      </SidebarProvider>
     </html>
   );
 }

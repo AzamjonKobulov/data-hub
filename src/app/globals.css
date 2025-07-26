@@ -152,3 +152,7 @@
 @utility smooth-200 {
   @apply transition-all duration-200;
 }
+
+.scroll-none::-webkit-scrollbar {
+  @apply hidden;
+}
